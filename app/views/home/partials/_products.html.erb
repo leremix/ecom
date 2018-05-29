@@ -3,7 +3,7 @@
 
 <% @products.each do |product| %>
 
-  <img src="http://placehold.it/700x400" alt="">
+
   <h4> <a href="<%= product_show_path(product) %>"><%= product.title %> </a> <%= product.price %> € </h4>
   <p> <%= product.description %></p>
 

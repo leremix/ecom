@@ -21,7 +21,7 @@ class CartsController < ActionController::Base
       product_id: @product.id
     })
     end
-    flash[:success] = "Product was successfully added to cart!"
+    flash[:success] = "Le produit a été ajouter au panier"
     redirect_back fallback_location: root_path
   end
 

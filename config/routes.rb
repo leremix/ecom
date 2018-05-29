@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   delete 'cart/:id', to: 'carts#remove_from_cart', as: 'remove_from_cart'
 
-  get 'users/:id', to: 'users#show', as: 'user_profil_path'
+  get 'users/:id', to: 'users#show', as: 'user_profil'
 
   devise_for :users,
     path: '',

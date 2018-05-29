@@ -1,19 +1,25 @@
+
+
 <div class="ui stackable secondary menu" style="padding: 10px; margin: 0;">
 	<%= link_to 'Home', root_path, class: "item" %>
+	<%= link_to 'Photos', products_path, class: "item" %>
   <div class="right menu">
     <% if user_signed_in? %>
 	    <div class="ui simple dropdown item">
 		    Mon compte
 		    <i class="dropdown icon"></i>
 		    <div class="menu">
-		        <%= link_to 'Mon compte', root_path, class: "item" %>
+		        <%= link_to 'Mon compte', user_profil_path(current_user.id), class: "item" %>
     			<%= link_to 'Se déconnecter', destroy_user_session_path, :method => :delete, class: "ui red basic button circular" %>
-		      <div class="item">Choice 3</div>
+		      
 		    </div>
 		</div>
-    	
+    	<div class="item">
+    		<%= link_to 'Panier', current_user_cart_path, class: "item" %>
+    	</div>	
     <% else %>
-    	<%= link_to 'Se connecter', new_user_session_path, class: "ui violet basic button circular" %>
+    	<%= link_to 'Se connecter', new_user_session_path, class: "item" %>
     <% end %>
   </div>
 </div>
+
