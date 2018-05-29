@@ -1,0 +1,12 @@
+<% @products.each do |product| %>
+<a href="#"> <img class="img-fluid rounded" src="http://placehold.it/700x300" alt=""> </a>
+
+
+<h2> <%= link_to product.title, product_show_path(product) %>  <span> Prix : <%= product.price %> €</span> </h2>
+<p> <%= product.description %></p>
+ <%= link_to "En savoir plus",  product_show_path(product) %>
+<% if user_signed_in? %>
+ <%= button_to "Add to cart",  add_to_cart_path(product)%>
+            <% end %>
+
+<% end %>

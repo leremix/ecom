@@ -1,0 +1,24 @@
+    <!-- Page Content -->
+      <!-- Page Heading/Breadcrumbs -->
+      <h1>Détails du produit </h1>
+
+      <ol>
+        <li>
+          <a href="/">Accueil</a>
+        </li>
+        <li>Détails du produit</li>
+      </ol>
+
+      <!-- Portfolio Item Row -->
+          <img class="img-fluid" src="http://placehold.it/750x500" alt="">
+
+          <h3>Produit</h3>
+          <p> <%= @product.title %></p>
+          <h4 >Description du produit</h4>
+          <p> <%= @product.description %></p>
+          <h3>Prix</h3>
+          <p> <%= @product.price %> €</p>
+            <% if user_signed_in? %>
+               <%= button_to "Add to cart",  add_to_cart_path(@product)%>
+            <% end %>
+    <!-- /.row -->

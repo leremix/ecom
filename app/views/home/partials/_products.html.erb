@@ -1,0 +1,16 @@
+<!-- Portfolio Section -->
+<h2>Marketplace</h2>
+
+<% @products.each do |product| %>
+
+  <img src="http://placehold.it/700x400" alt="">
+  <h4> <a href="<%= product_show_path(product) %>"><%= product.title %> </a> <%= product.price %> € </h4>
+  <p> <%= product.description %></p>
+
+<%= link_to "En savoir plus", product_show_path(product) %>
+
+<% if user_signed_in? %>
+  <%= button_to "Add to cart", add_to_cart_path(product) %>
+<% end %>
+
+<% end %>

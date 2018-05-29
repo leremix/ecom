@@ -1,0 +1,60 @@
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="<%= root_path %>">Marketplace</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+
+        <li class="nav-item active">
+          <a class="nav-link" href="<%= root_path %>">Home
+            <% if current_page?(root_path) %>
+              <span class="sr-only">(current)</span>
+            <% end %>
+          </a>
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link" href="<%= products_path %>">Boutique</a>
+        </li>
+
+        <% if user_signed_in? %>
+         <li class="nav-item">
+            <%= link_to current_user_cart_path, class: 'nav-link' do %>
+            <i class="fas fa-shopping-cart"></i> Panier
+           <% end %>
+          </li>
+        <% end %>
+
+        <% if user_signed_in? %>
+         <li class="nav-item">
+            <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link' do %>
+            Log out
+           <% end %>
+          </li>
+          <li class="nav-item">
+           <%= link_to 'users/' + current_user.id.to_s, class: 'nav-link' do %>
+             Mes commandes
+            <% end %>
+          </li>
+
+        <% else %>
+          <% if !admin_signed_in? %>
+           <li class="nav-item">
+            <a class="nav-link" href="<%= new_user_session_path %>">Log in</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<%= new_user_registration_path %>">Register</a>
+          </li>
+          <% else %>
+          <%= link_to backend_index_path, class: 'nav-link' do %>
+            Administration
+           <% end %>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
